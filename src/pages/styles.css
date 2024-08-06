@@ -1,0 +1,104 @@
+/* From Uiverse.io by vikiWayne */ 
+.button {
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    transition: all 2000s;
+    font-size: 70px;
+    position: relative;
+    overflow: hidden;
+    animation: buttonAnimation 90s infinite;
+}
+
+@keyframes buttonAnimation {
+    0%, 100% {
+        color: #0369a1;
+        transform: scale(1);
+        box-shadow: none;
+    }
+    50% {
+        color: #477791;
+        transform: scale(1.1);
+        box-shadow: 4px 5px 17px -4px #268391;
+    }
+}
+
+.button::before {
+    content: "";
+    position: absolute;
+    left: -50px;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background-color: #78c8d7;
+    transform: skewX(0deg);
+    z-index: -1;
+    transition: width 2000ms;
+    animation: buttonBeforeAnimation 20s infinite;
+}
+
+@keyframes buttonBeforeAnimation {
+    0%, 100% {
+        width: 0;
+    }
+    50% {
+        width: 250%;
+    }
+}
+
+  
+  .button2 {
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #0369a1;
+    transition: all 1000ms;
+    font-size: 70px;
+    position: relative;
+    overflow: hidden;
+    outline: 2px solid #0369a1;
+    margin-top: 30px;
+}
+
+.button2:hover {
+    color: #0369a1;
+    transform: scale(0.9);
+    outline: 2px solid #70bdca;
+    box-shadow: none;
+}
+
+.button2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    transform: skewX(-45deg);
+    z-index: -1;
+    transition: width 1000ms;
+}
+
+.button2:hover::before {
+    width: 0;
+}
+
+.button3{
+    padding: 0.5em 1em;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #0369a1;
+    transition: all 1000ms;
+    font-size: 15px;
+    position: relative;
+    overflow: auto;
+    margin-top: 40px;
+    max-width: 45%;
+}
