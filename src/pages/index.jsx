@@ -1,9 +1,8 @@
-import Home from './Home';
-import Projects from './Projects';
 import Contact from './Contact';
-import Loading from './Loading';
-import Equify from './equify'
-import DressSense from './dressSense'
-import SallyRise from './SallyRise'
+import Experience from './Experience';
+import Home from './Home';
+import Intro from './Intro';
+import ProjectDetail from './ProjectDetail';
+import Projects from './Projects';
 
-export {Home, Projects, Contact,Loading,Equify,DressSense, SallyRise};
+export { Contact, Experience, Home, Intro, ProjectDetail, Projects };

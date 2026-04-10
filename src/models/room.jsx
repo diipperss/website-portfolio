@@ -1,22 +1,21 @@
-
-
-import React, { useRef, useEffect } from 'react'
-import { useGLTF } from '@react-three/drei'
-import {useFrame, useThree} from '@react-three/fiber'
-import {a} from '@react-spring/three'
+import { useRef, useEffect } from 'react';
+import { useGLTF } from '@react-three/drei';
+import { useFrame, useThree } from '@react-three/fiber';
+import { a } from '@react-spring/three';
 import roomScene from '../assets/3d/room.glb';
 
-const room = ({isRotating, setIsRotating, ...props}) => {
+const noop = () => {};
+
+const Room = ({ isRotating = false, setIsRotating = noop, setCurrentStage = noop, ...props }) => {
 const roomRef=useRef(); 
 const {gl,viewport} = useThree();
 
-const { nodes, materials } = useGLTF(roomScene)
+const { nodes, materials } = useGLTF(roomScene);
 
 const lastX = useRef(0);
 const lastY = useRef(0);
 const rotationSpeedX = useRef(0);
 const rotationSpeedY = useRef(0);
-const rotationSpeed = useRef(0);
 const dampingFactor=0.95;
 
 const handlePointerDown=(e) =>{
@@ -858,8 +857,8 @@ useEffect(() => {
       </group>
     </a.group>
   )
-}
+};
 
-useGLTF.preload('/isometric_bedroom.glb')
+useGLTF.preload(roomScene);
 
-export default room;
+export default Room;

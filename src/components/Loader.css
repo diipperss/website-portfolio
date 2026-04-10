@@ -1,4 +1,16 @@
-/* From Uiverse.io by Nawsome */ 
+/* From Uiverse.io by Nawsome */
+.loader-fullscreen {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 22% 16%, rgba(32, 58, 92, 0.2), transparent 22%),
+    radial-gradient(circle at 76% 20%, rgba(27, 44, 73, 0.16), transparent 20%),
+    linear-gradient(180deg, rgba(8, 17, 29, 0.82), rgba(11, 22, 37, 0.9));
+  pointer-events: none;
+}
+
 .boxes {
     --size: 32px;
     --duration: 800ms;
@@ -7,7 +19,7 @@
     position: relative;
     transform-style: preserve-3d;
     transform-origin: 50% 50%;
-    margin-top: calc(var(--size) * 1.5 * -1);
+    margin-top: calc(var(--size) * 1.1 * -1);
     transform: rotateX(60deg) rotateZ(45deg) rotateY(0deg) translateZ(0px);
   }
   
@@ -45,7 +57,7 @@
   }
   
   .boxes .box > div {
-    --background: #5C8DF6;
+    --background: #17365c;
     --top: auto;
     --right: auto;
     --bottom: auto;
@@ -70,18 +82,18 @@
   }
   
   .boxes .box > div:nth-child(2) {
-    --background: #145af2;
+    --background: #0d2746;
     --right: 0;
     --rotateY: 90deg;
   }
   
   .boxes .box > div:nth-child(3) {
-    --background: #447cf5;
+    --background: #21456f;
     --rotateX: -90deg;
   }
   
   .boxes .box > div:nth-child(4) {
-    --background: #DBE3F4;
+    --background: #0a111b;
     --top: 0;
     --left: 0;
     --translateZ: calc(var(--size) * 3 * -1);
