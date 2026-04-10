@@ -56,6 +56,31 @@ const useCursor = (active) => {
   }, [active]);
 };
 
+const useMobileLanding = () => {
+  const [isMobileLanding, setIsMobileLanding] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') {
+      return undefined;
+    }
+
+    const mediaQuery = window.matchMedia('(max-width: 819px), (pointer: coarse)');
+    const updateMatch = () => setIsMobileLanding(mediaQuery.matches);
+
+    updateMatch();
+
+    if (typeof mediaQuery.addEventListener === 'function') {
+      mediaQuery.addEventListener('change', updateMatch);
+      return () => mediaQuery.removeEventListener('change', updateMatch);
+    }
+
+    mediaQuery.addListener(updateMatch);
+    return () => mediaQuery.removeListener(updateMatch);
+  }, []);
+
+  return isMobileLanding;
+};
+
 const createMonitorTexture = (hovered) => {
   const canvas = document.createElement('canvas');
   canvas.width = 1200;
@@ -263,8 +288,26 @@ const FloatingRig = ({ children }) => {
 
 const OfficeScene = ({ onEnter, zooming }) => {
   const [hovered, setHovered] = useState(false);
+  const isMobileLanding = useMobileLanding();
 
   useCursor(hovered);
+
+  if (isMobileLanding) {
+    return (
+      <div className={`office-shell office-shell--mobile ${zooming ? 'office-shell--zooming' : ''}`}>
+        <div className="office-mobile-entry">
+          <p className="office-mobile-entry__eyebrow">Divya&apos;s desk</p>
+          <h1>Open portfolio</h1>
+          <p>
+            The 3D landing scene is desktop-first, so phone users enter directly into the portfolio showcase.
+          </p>
+          <button className="retro-button retro-button--primary office-mobile-entry__button" onClick={onEnter} type="button">
+            Enter desktop
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={`office-shell ${zooming ? 'office-shell--zooming' : ''}`}>

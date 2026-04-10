@@ -50,6 +50,57 @@
     transform: scale(1.04);
 }
 
+.office-shell--mobile {
+    display: grid;
+    place-items: center;
+    padding: 1.5rem;
+}
+
+.office-mobile-entry {
+    width: min(100%, 26rem);
+    display: grid;
+    gap: 0.9rem;
+    padding: 1.25rem;
+    border: 3px solid #9aa1ae;
+    background: linear-gradient(180deg, #d8d9dd, #b4b7bf);
+    box-shadow:
+        10px 10px 0 #30384a,
+        inset 2px 2px 0 #f7f7f8,
+        inset -2px -2px 0 #5d6572;
+    color: #0f172a;
+    font-family: var(--font-mono);
+}
+
+.office-mobile-entry h1,
+.office-mobile-entry p {
+    margin: 0;
+}
+
+.office-mobile-entry h1 {
+    font-family: var(--font-retro);
+    font-size: clamp(2rem, 8vw, 3rem);
+    line-height: 0.9;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.office-mobile-entry p {
+    color: #334155;
+    line-height: 1.6;
+}
+
+.office-mobile-entry__eyebrow {
+    margin: 0;
+    color: #1d4ed8;
+    font-size: 0.76rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.office-mobile-entry__button {
+    width: 100%;
+}
+
 .office-overlay {
     position: absolute;
     inset: auto 1.5rem 1.5rem 1.5rem;
