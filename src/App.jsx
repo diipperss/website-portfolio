@@ -1,6 +1,6 @@
 import { HashRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
 import RetroDesktopLayout from './components/RetroDesktopLayout';
-import { Contact, Experience, Home, Intro, ProjectDetail, Projects } from './pages';
+import { BeyondCode, Contact, Experience, Home, Intro, ProjectDetail, Projects } from './pages';
 import './pages/styles.css';
 
 const App = () => {
@@ -16,6 +16,7 @@ const App = () => {
             <Route path="/projects/swe" element={<Projects group="swe" />} />
             <Route path="/projects/ai" element={<Projects group="ai" />} />
             <Route path="/projects/:slug" element={<ProjectDetail />} />
+            <Route path="/beyond-code" element={<BeyondCode />} />
             <Route path="/contact" element={<Contact />} />
           </Route>
 

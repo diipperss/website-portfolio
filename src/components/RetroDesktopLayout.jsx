@@ -1,5 +1,5 @@
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
-import { desktopNavigation, personalInfo } from '../data/profile';
+import { desktopNavigation } from '../data/profile';
 import { projects } from '../data/projects';
 
 const getActiveSection = (pathname) => {
@@ -20,6 +20,10 @@ const getActiveSection = (pathname) => {
     return activeProject?.group ?? '';
   }
 
+  if (pathname.startsWith('/beyond-code')) {
+    return 'beyond-code';
+  }
+
   if (pathname.startsWith('/contact')) {
     return 'contact';
   }
@@ -36,21 +40,13 @@ const RetroDesktopLayout = () => {
       <div className="retro-window retro-window--desktop">
         <header className="retro-window__top">
           <div className="retro-window__title">Divya Portfolio OS</div>
-          <div className="retro-window__buttons" aria-hidden="true">
-            <span />
-            <span />
-            <span />
-          </div>
+          <NavLink aria-label="Back to setup" className="retro-window__close" to="/">
+            X
+          </NavLink>
         </header>
 
         <div className="retro-window__desktop">
           <aside className="retro-sidebar">
-            <div className="retro-sidebar__section">
-              <p className="retro-label">System user</p>
-              <strong>{personalInfo.name}</strong>
-              <span>{personalInfo.location}</span>
-            </div>
-
             <nav className="retro-sidebar__nav" aria-label="Desktop sections">
               {desktopNavigation.map((item) => (
                 <NavLink
@@ -62,13 +58,6 @@ const RetroDesktopLayout = () => {
                 </NavLink>
               ))}
             </nav>
-
-            <div className="retro-sidebar__section">
-              <p className="retro-label">Shortcut</p>
-              <NavLink className="retro-button retro-button--compact" to="/">
-                Back to setup
-              </NavLink>
-            </div>
           </aside>
 
           <section className="retro-window__content retro-window__content--desktop">

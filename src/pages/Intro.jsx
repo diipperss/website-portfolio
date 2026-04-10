@@ -1,4 +1,4 @@
-import { education, heroSignals, introSections, personalInfo } from '../data/profile';
+import { courseModules, education, heroSignals, introSections, personalInfo } from '../data/profile';
 import './styles.css';
 
 const Intro = () => {
@@ -47,7 +47,7 @@ systems that are meant to work the first time.
         </article>
 
         <aside className="retro-card">
-          <p className="retro-label">Quick facts</p>
+          <p className="retro-label">Unchangeable Truths</p>
           <div className="retro-list">
             <div className="retro-copy-block">
               <strong>Location</strong>
@@ -78,6 +78,16 @@ systems that are meant to work the first time.
               <small>{item.location}</small>
             </article>
           ))}
+        </div>
+        <div className="retro-module-panel">
+          <p className="retro-label">Selected Modules</p>
+          <div className="retro-module-grid">
+            {courseModules.map((item) => (
+              <span className="retro-module-pill" key={item}>
+                {item}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
     </div>

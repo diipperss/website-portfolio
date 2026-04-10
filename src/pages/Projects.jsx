@@ -34,15 +34,6 @@ const Projects = ({ group = 'swe' }) => {
               ))}
             </div>
 
-            <div className="retro-list">
-              {project.highlights.slice(0, 3).map((highlight) => (
-                <div className="retro-copy-block" key={highlight}>
-                  <strong>Build note</strong>
-                  <p>{highlight}</p>
-                </div>
-              ))}
-            </div>
-
             <div className="retro-actions">
               <Link className="retro-button retro-button--compact" to={project.path}>
                 Open project

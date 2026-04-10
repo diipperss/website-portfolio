@@ -1,4 +1,6 @@
-import { achievements, featuredExperience } from '../data/profile';
+import { Link } from 'react-router-dom';
+import { featuredExperience } from '../data/profile';
+import { getProjectPath } from '../data/projects';
 import './styles.css';
 
 const Experience = () => {
@@ -6,13 +8,10 @@ const Experience = () => {
     <div className="retro-page">
       <section className="retro-card retro-card--hero">
         <p className="retro-label">Work experience</p>
-        <h1 className="retro-page__title">Recent roles and longer-running builds.</h1>
-        <p className="retro-copy">
-          These are the projects and roles that best show how I work across product framing, implementation detail, and shipping AI-assisted features.
-        </p>
+        <h1 className="retro-page__title">Internship Experiences</h1>
       </section>
 
-      <section className="retro-columns">
+      <section className="retro-columns retro-columns--single">
         <div className="retro-stack">
           {featuredExperience.map((item) => (
             <article className="retro-card" key={`${item.company}-${item.period}`}>
@@ -22,7 +21,11 @@ const Experience = () => {
                 </strong>
                 <span>{item.period}</span>
               </div>
-              <p className="retro-copy">{item.description}</p>
+              <ul className="retro-bullet-list">
+                {item.description.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
               <div className="retro-chip-grid">
                 {item.tools.map((tool) => (
                   <span className="retro-chip" key={tool}>
@@ -30,21 +33,16 @@ const Experience = () => {
                   </span>
                 ))}
               </div>
+              {item.projectSlug ? (
+                <div className="retro-actions">
+                  <Link className="retro-button retro-button--compact" to={getProjectPath(item.projectSlug)}>
+                    Open project
+                  </Link>
+                </div>
+              ) : null}
             </article>
           ))}
         </div>
-
-        <aside className="retro-card">
-          <p className="retro-label">Highlights</p>
-          <div className="retro-list">
-            {achievements.map((item) => (
-              <div className="retro-copy-block" key={item}>
-                <strong>{item}</strong>
-                <p>Recognition and programs that shaped how I approach team-based product delivery.</p>
-              </div>
-            ))}
-          </div>
-        </aside>
       </section>
     </div>
   );

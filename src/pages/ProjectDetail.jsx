@@ -61,7 +61,6 @@ const ProjectDetail = () => {
         <div className="retro-stack">
           {project.highlights.map((highlight) => (
             <div className="retro-copy-block" key={highlight}>
-              <strong>Build detail</strong>
               <p>{highlight}</p>
             </div>
           ))}

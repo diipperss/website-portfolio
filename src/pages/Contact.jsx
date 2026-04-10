@@ -1,4 +1,4 @@
-import { contactChannels, personalInfo, skillGroups } from '../data/profile';
+import { contactChannels, skillGroups } from '../data/profile';
 import './styles.css';
 
 const Contact = () => {
@@ -6,15 +6,14 @@ const Contact = () => {
     <div className="retro-page">
       <section className="retro-card retro-card--hero">
         <p className="retro-label">Contact</p>
-        <h1 className="retro-page__title">Let&apos;s build something useful.</h1>
+        <h1 className="retro-page__title">Let&apos;s build together.</h1>
         <p className="retro-copy">
-          I enjoy working on product-focused software, applied AI features, and systems that need both technical depth and a clean user experience.
+          Reach out if you&apos;d like to chat, collaborate, or build something meaningful together :)
         </p>
       </section>
 
-      <section className="retro-columns">
+      <section className="retro-columns retro-columns--single">
         <article className="retro-card">
-          <p className="retro-label">Links</p>
           <div className="retro-stack">
             {contactChannels.map((item) => (
               <a
@@ -30,43 +29,8 @@ const Contact = () => {
             ))}
           </div>
         </article>
-
-        <aside className="retro-card">
-          <p className="retro-label">Profile</p>
-          <div className="retro-list">
-            <div className="retro-copy-block">
-              <strong>Name</strong>
-              <p>{personalInfo.name}</p>
-            </div>
-            <div className="retro-copy-block">
-              <strong>Location</strong>
-              <p>{personalInfo.location}</p>
-            </div>
-            <div className="retro-copy-block">
-              <strong>Portfolio</strong>
-              <p>{personalInfo.portfolio}</p>
-            </div>
-          </div>
-        </aside>
       </section>
 
-      <section className="retro-card">
-        <p className="retro-label">Toolbox</p>
-        <div className="retro-stack">
-          {skillGroups.map((group) => (
-            <div className="retro-copy-block" key={group.label}>
-              <strong>{group.label}</strong>
-              <div className="retro-chip-grid">
-                {group.items.map((item) => (
-                  <span className="retro-chip" key={item}>
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
     </div>
   );
 };
