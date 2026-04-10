@@ -56,14 +56,18 @@ const useCursor = (active) => {
   }, [active]);
 };
 
+const getIsMobileLanding = () => {
+  if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') {
+    return false;
+  }
+
+  return window.matchMedia('(max-width: 819px), (pointer: coarse)').matches;
+};
+
 const useMobileLanding = () => {
-  const [isMobileLanding, setIsMobileLanding] = useState(false);
+  const [isMobileLanding, setIsMobileLanding] = useState(getIsMobileLanding);
 
   useEffect(() => {
-    if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') {
-      return undefined;
-    }
-
     const mediaQuery = window.matchMedia('(max-width: 819px), (pointer: coarse)');
     const updateMatch = () => setIsMobileLanding(mediaQuery.matches);
 
